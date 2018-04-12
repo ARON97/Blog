@@ -29,3 +29,7 @@ reload! - to refresh the console
 To view errors
 article.errors.any?
 article.errors.full_messages
+
+git add -A 				- Add to git
+git commit -m "Create articles table, model and add validations" - to save to git with a message
+git push - To add to github repository
