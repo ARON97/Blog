@@ -1,8 +1,17 @@
 class ArticlesController < ApplicationController
 
-	# Adding articles routes
+	# The index action. In this case it will be Articles where all the articles are listed
+	def index
+		@articles = Article.all # grab all articles in db
+	end
+
+	# Adding articles route
 	def new
 		@article = Article.new # initiate the instance variable
+	end
+
+	def edit
+		@article = Article.find(params[:id]) # find the article
 	end
 
 	# defining action create. The button
@@ -19,6 +28,18 @@ class ArticlesController < ApplicationController
 			render 'new'
 		end
 		
+	end
+
+	# update action
+	def update
+		@article = Article.find(params[:id])
+		# if edited information does not meet validations
+		if @article.update(article_params)
+			flash[:notice] = "Article was successfully updated"
+			redirect_to article_path(@article)
+		else
+			render 'edit'
+		end
 	end
 
 	# showing the created article

@@ -1,4 +1,4 @@
-<h1>Create an article</h1>
+<h1>Edit exiting article</h1>
 
 <!-- display errors -->
 <% 	if @article.errors.any? %>
@@ -32,4 +32,5 @@
 	</p>
 <% end %>
 
+<%= link_to "Edit this article", edit_article_path(@article) %> |
 <%= link_to "Back to articles listing", articles_path %>
