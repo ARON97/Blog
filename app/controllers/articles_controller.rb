@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+	before_action :set_article, only: [:edit, :update, :show, :destroy] # ensures that other methods call the set_article method first
+	# only means that only this methods will impliment set_article
 
 	# The index action. In this case it will be Articles where all the articles are listed
 	def index
@@ -11,7 +13,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
-		@article = Article.find(params[:id]) # find the article
+		 # find the article
 	end
 
 	# defining action create. The button
@@ -32,7 +34,6 @@ class ArticlesController < ApplicationController
 
 	# update action
 	def update
-		@article = Article.find(params[:id])
 		# if edited information does not meet validations
 		if @article.update(article_params)
 			flash[:notice] = "Article was successfully updated"
@@ -44,13 +45,13 @@ class ArticlesController < ApplicationController
 
 	# showing the created article
 	def show
-		@article = Article.find(params[:id])
+		
 	end
 
 	# destroy action
 	def destroy
 		# find the article
-		@article = Article.find(params[:id])
+		
 		# delete article
 		@article.destroy
 		# send a message
@@ -60,9 +61,14 @@ class ArticlesController < ApplicationController
 	end
 
 	private
-	def article_params
-		params.require(:article).permit(:title, :description)
-	end
+		# method to avoid repetition. Find articles
+		def set_article
+			@article = Article.find(params[:id])
+		end
+
+		def article_params
+			params.require(:article).permit(:title, :description)
+		end
 
 	# define show action
 
