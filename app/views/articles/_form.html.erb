@@ -1,0 +1,33 @@
+<!-- display errors -->
+<% 	if @article.errors.any? %>
+	<h2>The following errors prevented the article from getting created</h2>
+	<ul>
+		<% @article.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+	
+
+
+<!-- Adding a form. A model back form -->
+<%= form_for @article do |f| %>
+	<!-- Title label and text field -->
+	<p>
+		<%= f.label :title %><br/>
+		<%= f.text_field :title %> 
+	</p>
+
+	<!-- Description label and text area -->
+	<p>
+		<%= f.label :description %><br/>
+		<%= f.text_area :description %> 
+	</p>
+
+	<!-- Submit button -->
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to "Back to articles listing", articles_path %>

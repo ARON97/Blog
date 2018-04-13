@@ -9,14 +9,10 @@
   </head>
 
   <body>
-  	<!-- Display the flash message -->
-  	<% flash.each do |name, msg| %>
-  		<ul>
-  			<li>
-  				<%= msg %>
-  			</li>
-  		</ul>
-  	<% end %>
+  	
+    <!-- calling the _messages.html.erb -->
+    <%= render 'layouts/messages' %>
+    
     <%= yield %>
   </body>
 </html>

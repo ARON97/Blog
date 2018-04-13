@@ -33,3 +33,7 @@ article.errors.full_messages
 git add -A 				- Add to git
 git commit -m "Create articles table, model and add validations" - to save to git with a message
 git push - To add to github repository
+
+Partial
+Avoiding redundant code/code duplication (Combining the new.html.erb and edit.html.erb codes)
+_form.html.erb - naming the partial file
