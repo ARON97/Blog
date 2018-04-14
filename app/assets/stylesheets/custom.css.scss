@@ -25,7 +25,7 @@ $navbar-default-bg: #6497b1;
 
 .jumbotron {
 	// loading an image. Directory for image: app/assets/images
-	background-image: asset-url('new_cover_page.jpg');
+	// background-image: asset-url('new_cover_page.jpg');
 	background-size: cover; // the image size
 	height: 550px; // setting the height of the jumbotron
 }
@@ -50,7 +50,7 @@ footer {
 	margin-top: 45px;
 	padding-top: 5px;
 	border-top: 1px solid #eaeaea;
-	color: #6497b1;
+	color: #777;
 }
 
 footer small {
