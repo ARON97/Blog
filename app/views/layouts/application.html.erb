@@ -9,10 +9,16 @@
   </head>
 
   <body>
-  	
+  	<!-- render the Navigation file -->
+    <%= render 'layouts/navigation' %>
     <!-- calling the _messages.html.erb -->
     <%= render 'layouts/messages' %>
-    
-    <%= yield %>
+    <!-- Wrapper file - Any code included here will show on every view -->
+    <!-- Inserting a containing into yield to make the home container not expend through the whole home page -->
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!-- footer -->
+    <%= render 'layouts/footer' %>
   </body>
 </html>

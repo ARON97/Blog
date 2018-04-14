@@ -1,3 +1,68 @@
+// changing the colour of the navbar
+$navbar-default-bg: #6497b1;
 // Import bootstrap
-@import "bootstrap-sprocket";
+@import "bootstrap-sprockets";
 @import "bootstrap";
+
+// styling the logo. Alpha blog
+#logo { // when refering to an id use # and class use .
+	float: left; // 
+	font-size: 1.7em; // increase the font size
+	color: #fff; // color to white
+	text-transform: uppercase; // letters to uppercase
+	letter-spacing: -1px; // the letter spacing
+	font-weight: bold; // making the font bold
+}
+
+#logo:hover { // when hovering over the logo
+	color: #fff;
+	text-decoration: none;
+}
+
+.center {
+	text-align: center; // align text in home to center
+}
+
+.jumbotron {
+	// loading an image. Directory for image: app/assets/images
+	background-image: asset-url('new_cover_page.jpg');
+	background-size: cover; // the image size
+	height: 550px; // setting the height of the jumbotron
+}
+
+// setting the style of the header
+.jumbotron h1 {
+	color: #6497b1;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: -1px;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+}
+
+.btn-xlarge {
+	font-size: 1.7em;
+	background-color: #6497b1;
+}
+
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid #eaeaea;
+	color: #6497b1;
+}
+
+footer small {
+	float: left;
+}
+
+footer ul {
+	float: right;
+	list-style: none;
+}
+
+footer li {
+	float: left;
+	margin-left: 15px;
+}
