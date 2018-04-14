@@ -1,8 +1,12 @@
 <!-- Display the flash message -->
-<% flash.each do |name, msg| %>
-	<ul>
-		<li>
-			<%= msg %>
-		</li>
-	</ul>
-<% end %>
+<div class="row">
+	<div class="col-xs-10 col-xs-offset-1">
+		<% flash.each do |name, msg| %>
+			<div class='alert alert-<%="#{name}" %>'> <!-- Whatever the name is will be displayed. Sucha s success or unsuccessfully saved -->
+				<a href="#" class="close" data-dismiss="alert">&#215;</a><!-- close the display message. &#215; displays the x-->
+				<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+			</div>
+			
+		<% end %>
+	</div>
+</div>

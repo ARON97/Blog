@@ -23,7 +23,8 @@ class ArticlesController < ApplicationController
 
 		# if the information passed does not meet validations
 		if @article.save
-			flash[:notice] = "Article was successfully created" # successful message
+			# Success will display green. Replaced noticed
+			flash[:success] = "Article was successfully created" # successful message
 			redirect_to article_path(@article)
 		else
 			# if validations was unsuccessful
@@ -36,7 +37,8 @@ class ArticlesController < ApplicationController
 	def update
 		# if edited information does not meet validations
 		if @article.update(article_params)
-			flash[:notice] = "Article was successfully updated"
+			# Success will display green. Replaced noticed
+			flash[:success] = "Article was successfully updated"
 			redirect_to article_path(@article)
 		else
 			render 'edit'
@@ -54,8 +56,8 @@ class ArticlesController < ApplicationController
 		
 		# delete article
 		@article.destroy
-		# send a message
-		flash[:notice] = "Article was successfully deleted"
+		# send a message. danger will display the message in red
+		flash[:danger] = "Article was successfully deleted"
 		# redirect to article paths
 		redirect_to articles_path
 	end
