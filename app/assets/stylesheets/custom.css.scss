@@ -56,6 +56,19 @@ $navbar-default-bg: #6497b1;
 	margin-top: 0; // decreases the margin at the top of Description in the articles page
 }
 
+// article title in Listing All Articles
+.article-title {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+// article body in Listing All Articles
+.article-body {
+	border-top: 1px solid #eaeaea;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
 footer {
 	margin-top: 45px;
 	padding-top: 5px;
