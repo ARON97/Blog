@@ -46,6 +46,16 @@ $navbar-default-bg: #6497b1;
 	background-color: #6497b1;
 }
 
+// puts a border above the buttons
+.article-actions { 
+	border-top: 1px solid #eaeaea; // border colour
+	padding-top: 5px; // top padding
+}
+
+.description {
+	margin-top: 0; // decreases the margin at the top of Description in the articles page
+}
+
 footer {
 	margin-top: 45px;
 	padding-top: 5px;
