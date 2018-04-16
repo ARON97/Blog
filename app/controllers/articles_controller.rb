@@ -18,9 +18,10 @@ class ArticlesController < ApplicationController
 
 	# defining action create. The button
 	def create
+		debugger
 		# To save
 		@article = Article.new(article_params)
-
+		@article.user = User.first # hardcode the user
 		# if the information passed does not meet validations
 		if @article.save
 			# Success will display green. Replaced noticed

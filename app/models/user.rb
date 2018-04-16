@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+	has_many :articles # the user can add many articles
+	before_save { self.email = email.downcase } # before the user gets saved it will take the email and turn it to lowercase and then save
 	# username validations
 	validates :username, presence: true, 
 				uniqueness: { case_sensitive: false}, 

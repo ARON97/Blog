@@ -91,3 +91,27 @@ user.valid? to check if a username is valid
 reload? - to reload rails console
 
 For email, to test out regular expressions. rebular.com
+
+One to Many Associations
+git checkout -b userarticle-association, create a new branch
+Create a migration file to add the column
+rails generate migration add_user_id_to_articles
+Go to the migration file db/new created file. Add the columns
+Run the migration file rails db:migrate
+
+Go to user and add
+has_many :articles # the user can add many articles
+
+Go to articles and add
+belongs_to :user
+
+Not making user_id nil in articles. To enforce that we use
+validates :user_id, presence: true
+
+DEBUGGING
+Go to gem file - Under group development test. There is a Gem called byebug
+byebug allows you to debug on the fly
+Insert debugger on the create method in Articles_controller and comment out a line. This will pause the server when the create button is clicked
+Notice the byebug on the console. When article_params is typed in the details will be shown.
+When N is typed in it goes to the next line and saves it
+CTRL + D, goes out of the debugger. Debugging tutorial can be found on 096
