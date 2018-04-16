@@ -17,6 +17,16 @@
 					<div class="article-body">
 						<!-- Incase of big article description. We use truncate and specify the size -->
 						<%= truncate(article.description, length: 100) %></td>
+						<!-- Add the user data -->
+						<div class="article-meta-details">
+							<small>
+								Created by: <%= article.user.username if article.user %>,
+								<!-- display the time -->
+							 	<%= time_ago_in_words(article.created_at) %> ago,
+							 	<!-- lasted updated -->
+							 	last updated: <%= time_ago_in_words(article.updated_at) %> ago
+							</small>
+						</div>
 					</div>
 
 					<div class="article-actions">

@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
 	# defining action create. The button
 	def create
-		debugger
+		# debugger
 		# To save
 		@article = Article.new(article_params)
 		@article.user = User.first # hardcode the user
