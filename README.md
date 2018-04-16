@@ -61,3 +61,33 @@ Add feature branch back to master branch
 git status - first step commit changes
 git add -A, commit changes
 git commit -m "create users table and model"
+
+Merge feature branch to master branch
+git merge create-users
+
+Since feature branch(create-users) has been merged to master branch
+I no longer need my feature branch.
+git branch -d create-users, deleting the feature branch, create-users
+
+We used the small -d, because we merged the changes from the create-users back to our master branch. If we had not merge the changes, this command would not work
+The we will had to use caps -D
+
+Adding validations to User class
+git checkout -b user-validations, create a feature branch
+Go to rails console
+
+To checkout validations go to guides.rubyonrails.org/active_record_validations.html
+Use reload! when you updated a file in rails console
+
+To create a new user
+user = User.new(username: "jo", email: "hello")
+To go back to previous command use the up arrow
+
+Changing the username in rails console
+user
+user.username = "joe"
+user.save, to save a username
+user.valid? to check if a username is valid
+reload? - to reload rails console
+
+For email, to test out regular expressions. rebular.com
