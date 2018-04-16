@@ -37,3 +37,27 @@ git push - To add to github repository
 Partial
 Avoiding redundant code/code duplication (Combining the new.html.erb and edit.html.erb codes)
 _form.html.erb - naming the partial file
+
+VERY IMPORTANT
+Making master branch always deployable to production
+
+Any updates or features added going forward. I will add it to a feature branch,
+So that if I mess up the branch. I can simply drop the branch or work on fixing it.
+But my master branch will still be deployable to production. This is called an ADDED LAYER OF SAFETY.
+All new features are built in feature branches. For example, when working in teams
+and there is one application, each developer will be working on their individual
+feature branch and then when a feature is completed. That feature is merged to the master branch.
+
+To create a feature branch
+git checkout -b create-users (then the name of the branch. Since we going to create users we will use create-users)
+Note how master changes to branch
+
+git branch - shows all the branches
+git checkout master - to move back to the master branch
+git checkout create-users - switching back to create-users branch
+
+Add feature branch back to master branch
+
+git status - first step commit changes
+git add -A, commit changes
+git commit -m "create users table and model"
