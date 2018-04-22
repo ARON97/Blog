@@ -115,3 +115,17 @@ Insert debugger on the create method in Articles_controller and comment out a li
 Notice the byebug on the console. When article_params is typed in the details will be shown.
 When N is typed in it goes to the next line and saves it
 CTRL + D, goes out of the debugger. Debugging tutorial can be found on 096
+ 
+User Authentication(Secure Password)
+api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
+We going to use has_secure_password() in model(user.rb)
+Gem - gem 'bcrypt', '->3.1.7' - this is the gem that we are going to use. Which is added into the Gemfile
+We also going to need a column called password digest in the users table. We using
+users so it will be in the users table
+The gem 'bcrypt' takes the password string that you entered and creates a one way
+hash digest of that string and saves it to the database. In addition to that it also
+adds a random bit of data to it, which is called a salt. So the string that you come
+up with is virtually impossible to decrypt. If you not going to get the original
+password back, how are you going to authenticate users later on? Answer: It gives
+you a method called resource.authenticate('password') to compare passwords
+bundle install --without production, this is to install the gem

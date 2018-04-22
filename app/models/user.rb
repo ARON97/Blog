@@ -15,4 +15,7 @@ class User < ApplicationRecord
 			uniqueness: { case_sensitive: false},
 			format: { with: VALID_EMAIL_REGEX }
 	# format checks the validity of the email format
+
+	# For the password
+	has_secure_password
 end
