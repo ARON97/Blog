@@ -1,57 +1,7 @@
 <!-- A model back form -->
 
 <!-- Title -->
-<h1 align="center">Signup for Alpha Blog</h1>
-<!-- render code from error partial - _errors.html.erb -->
-<%= render 'shared/errors', obj: @user  %> <!-- # specifying the obj -->
-<!-- Adding a form. A model back form -->
-<div class="row">
-	<div class="col-xs-12">
-		<!-- Adding a horizontal form in Ruby embedded code -->
-		<%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-			<!-- Username label and text field -->
-			<div class="form-group">
-				<div class="control-label col-sm-2">
-					<%= f.label :username %>
-				</div>
-				<!-- text field -->
-				<div class="col-sm-8">
-					<%= f.text_field :username, class: "form-control", placeholder: "Enter username", autofocus: true %> 
-				</div>
-			</div>
+<h1 align="center">Sign up for Alpha Blog</h1>
 
-			<!-- Email label -->
-			<div class="form-group">
-				<div class="control-label col-sm-2">
-					<%= f.label :email %>
-				</div>
-				<!-- Email field -->
-				<div class="col-sm-8">
-					<%= f.email_field :email, class: "form-control", placeholder: "Enter email" %> 
-				</div>
-			</div>
-
-			<!-- Password label -->
-			<div class="form-group">
-				<div class="control-label col-sm-2">
-					<%= f.label :password %>
-				</div>
-				<!-- Password field -->
-				<div class="col-sm-8">
-					<%= f.password_field :password, class: "form-control", placeholder: "Enter password" %> 
-				</div>
-			</div>
-
-			<!-- Submit button -->
-			<div class="form-group">
-				<div class=" col-sm-offset-2 col-sm-10">
-					<%= f.submit "Sign up", class: 'btn btn-primary btn-lg' %>
-				</div>
-			</div>
-		<% end %>
-
-		<div class="col-xs-4 col-xs-offset-4">
-			[ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
-		</div>
-	</div>
-</div>
+<!-- render the partial form -->
+<%= render 'form' %>
