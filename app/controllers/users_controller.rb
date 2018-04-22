@@ -34,6 +34,11 @@ class UsersController < ApplicationController
 			render 'edit'	
 		end
 	end
+
+	def show
+		# finding the user based on the id
+		@user = User.find(params[:id])
+	end
 	# defining a private method
 	private
 	# whitelists username, email and password

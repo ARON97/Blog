@@ -1,0 +1,13 @@
+<h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+
+<!-- display a profile image of the user -->
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 center">
+		<!-- We associating an image with an email address by using gravatar, we define view methids such as the gravatar_for under helpers/application_helper -->
+		<%= gravatar_for @user, size: 150 %> <!-- @user is an object that has been passed from the show action -->
+	</div>
+</div>
+
+<h4 align="center"><%= @user.username %>'s articles</h4>
+<!-- list all the articles associated with the user -->
+<%= render 'articles/article', obj: @user.articles %> 
