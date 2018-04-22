@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   resources :articles # A new article path 
 
+  # sending signup to usersnew
+  get 'signup', to: 'users#new' # users sign up route
+  # the users path for the post action
+  # post 'users', to: 'users#create' # route to users_controller create action
+  resources :users, except: [:new] # the same as the above code
 end

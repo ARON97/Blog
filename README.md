@@ -120,7 +120,7 @@ User Authentication(Secure Password)
 api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
 We going to use has_secure_password() in model(user.rb)
 Gem - gem 'bcrypt', '->3.1.7' - this is the gem that we are going to use. Which is added into the Gemfile
-We also going to need a column called password digest in the users table. We using
+We also going to need a column called password_digest in the users table. We using
 users so it will be in the users table
 The gem 'bcrypt' takes the password string that you entered and creates a one way
 hash digest of that string and saves it to the database. In addition to that it also
@@ -129,3 +129,6 @@ up with is virtually impossible to decrypt. If you not going to get the original
 password back, how are you going to authenticate users later on? Answer: It gives
 you a method called resource.authenticate('password') to compare passwords
 bundle install --without production, this is to install the gem
+rails generate migration add_password_digest_to_users, generate a migration to add the password_digest attribute to the users table
+user.authenticate("notrightpassword"), to authenticate the password. It will return
+the correct user when the right password is provided
