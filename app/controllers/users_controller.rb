@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+	def index
+		@users = User.all
+	end
+
 	# define a new action
 	def new
 		# Instance variable. Links the controller to the template(new.html.erb)

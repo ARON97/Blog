@@ -75,6 +75,12 @@ $navbar-default-bg: #6497b1;
 	padding-bottom: 15px;
 }
 
+// styling the All Alpha Bloggers
+.listing {
+	list-style: none; // removes the points at the beginning of the lists
+	padding-left: 0;
+}
+
 footer {
 	margin-top: 45px;
 	padding-top: 5px;
