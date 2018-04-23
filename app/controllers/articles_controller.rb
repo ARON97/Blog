@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
 	# The index action. In this case it will be Articles where all the articles are listed
 	def index
-		@articles = Article.all # grab all articles in db
+		@articles = Article.paginate(page: params[:page], per_page: 5)
 	end
 
 	# Adding articles route

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	def index
-		@users = User.all
+		@users = User.paginate(page: params[:page], per_page: 5)
 	end
 
 	# define a new action
@@ -43,6 +43,8 @@ class UsersController < ApplicationController
 	def show
 		# finding the user based on the id
 		@user = User.find(params[:id])
+		# to paginate the users articles
+		@user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
 	end
 	# defining a private method
 	private

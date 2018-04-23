@@ -132,3 +132,14 @@ bundle install --without production, this is to install the gem
 rails generate migration add_password_digest_to_users, generate a migration to add the password_digest attribute to the users table
 user.authenticate("notrightpassword"), to authenticate the password. It will return
 the correct user when the right password is provided
+
+PAGINATION
+Install the pagination gems
+Add the two to Gemfile. gem 'will_paginate', '3.1.5' and gem 'bootstrap-will_paginate', '1.0.0'
+bundle install --without production
+Go to the articles_controller.rb edit the index action
+To display it in the views pull up the index.html.erb and modify it
+Go to the users_controller.rb edit the index action
+To display it in the views pull up the index.html.erb and modify it
+To paginate the users articles
+Go to users_controller.rb and modify the show action and then go to show.html.erb and modify it
