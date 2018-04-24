@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
 		# debugger
 		# To save
 		@article = Article.new(article_params)
-		@article.user = User.first # hardcode the user
+		@article.user = current_user # create an article for the current user
 		# if the information passed does not meet validations
 		if @article.save
 			# Success will display green. Replaced noticed

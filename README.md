@@ -180,3 +180,4 @@ def require_same_user
 		redirect_to root_path
 	end
 end
+Do the same for users_controller.rb. Check the code
