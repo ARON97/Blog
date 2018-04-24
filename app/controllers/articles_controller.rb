@@ -1,6 +1,12 @@
 class ArticlesController < ApplicationController
 	before_action :set_article, only: [:edit, :update, :show, :destroy] # ensures that other methods call the set_article method first
-	# only means that only this methods will impliment set_article
+	# means that only this methods will impliment set_article
+
+	# ensures that there is a logged in user when editing, updating and destroying. Except for index and show
+	before_action :require_user, except: [:index, :show]
+
+	# ensures that the user can only edit, update and destroy their articles
+	before_action :require_same_user, only: [:edit, :update, :destroy]
 
 	# The index action. In this case it will be Articles where all the articles are listed
 	def index
@@ -73,6 +79,12 @@ class ArticlesController < ApplicationController
 			params.require(:article).permit(:title, :description)
 		end
 
-	# define show action
+		def require_same_user
+			# if the logged in user has not created this article
+			if current_user != @article.user
+				flash[:danger] = "You can only edit or delete your own article"
+				redirect_to root_path
+			end
+		end
 
 end

@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   # the users path for the post action
   # post 'users', to: 'users#create' # route to users_controller create action
   resources :users, except: [:new] # the same as the above code
+
+  # Login route
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  # handle logout
+  delete 'logout', to: 'sessions#destroy'
 end

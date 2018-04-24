@@ -143,3 +143,40 @@ Go to the users_controller.rb edit the index action
 To display it in the views pull up the index.html.erb and modify it
 To paginate the users articles
 Go to users_controller.rb and modify the show action and then go to show.html.erb and modify it
+
+LOGIN FORM
+Create a route
+Create a controller(sessions_controller.rb)
+Create post and delete in routes.rb
+Create the view in sessions(password fields autofocus must be off)
+AUTHENTICATE AND LOGIN USERS
+Modify the create action
+To logout users modify the destroy action and create a logout link in the navigation
+
+Restricting activities users can perform based on weather they are logged in or out
+Methods will be created in the application_controller.rb
+Then used to modify the navigation bar when the user is logged in or out
+
+To avoid redundant code
+before_action :set_user, only: [:edit, :update, :show], add this in the first line of the class
+Then create a private method
+def set_user
+	@user = User.find(params[:id])
+end
+
+Display the sign up button only if the user is not logged in
+Modify the home action in the PagesController
+
+Restrict actions and controllers
+This is done when entering URL's
+Insert the following code in articles_controller.rb
+"before_action :require_user, except: [:index, :show]"
+before_action :require_same_user, only: [:edit, :update, :destroy]
+And then create the method
+def require_same_user
+	# if the logged in user has not created this article
+	if current_user != @article.user
+		flash[:danger] = "You can only edit or delete your own article"
+		redirect_to root_path
+	end
+end
