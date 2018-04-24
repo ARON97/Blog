@@ -22,9 +22,11 @@ class UsersController < ApplicationController
 		@user = User.new(user_params) # user_params is a private method
 		# determines if the user was successfully saved
 		if @user.save
+			# Sign in user upon Signup
+			session[:user_id] = @user.id
 			# displaying the successful message and the username
 			flash[:success] = "Welcome to the alpha blog #{@user.username}"
-			redirect_to articles_path # redirect
+			redirect_to user_path(@user) # redirect upon signing up the user
 		else 
 			render 'new'
 		end

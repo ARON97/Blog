@@ -181,3 +181,4 @@ def require_same_user
 	end
 end
 Do the same for users_controller.rb. Check the code
+Use lecturer 120 at 14 minutes for the production to heroku
