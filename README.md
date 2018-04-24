@@ -182,3 +182,14 @@ def require_same_user
 end
 Do the same for users_controller.rb. Check the code
 Use lecturer 120 at 14 minutes for the production to heroku
+
+ADMIN
+rails generate migration add_admin_to_users, add a migration file to users
+Open the migration file and modify it
+Run the migration file to add the column. Rails db:migrate
+user.toggle!(:admin), change a user to admin in the rails console
+Modify require_same_user in articles_controller.rb
+Modify articles/_article.html.erb and the show.html.erb
+To allow the admin to delete a user and their articles add a destroy action in users.rb and dependent: :destroy in the user.rb model
+Modify the users_controller.rb to restrict the destroy only to admin and add the private method
+Provide the destroy in the view/users/index.html.erb

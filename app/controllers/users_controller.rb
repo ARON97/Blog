@@ -3,8 +3,11 @@ class UsersController < ApplicationController
 	# getting rid of redundent code
 	before_action :set_user, only: [:edit, :update, :show]
 
-	# require the same user to edit and update their profile
-	before_action :require_same_user, only: [:edit, :update]
+	# require the same user to edit, update and delete their profile
+	before_action :require_same_user, only: [:edit, :update, :destroy]
+
+	# restrict the destroy only to admins
+	before_action :require_admin, only: [:destroy]
 
 	def index
 		# Adding pagination
@@ -55,6 +58,16 @@ class UsersController < ApplicationController
 		# to paginate the users articles
 		@user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
 	end
+
+	# delete the user. To delete their articles modify the User model models\user.rb
+	def destroy
+		# find the user
+		@user = User.find(params[:id])
+		# delete the user
+		@user.destroy
+		flash[:danger] = "User and all articles created by user have been deleted"
+		redirect_to users_path
+	end
 	# defining a private method
 	private
 	# whitelists username, email and password
@@ -67,9 +80,17 @@ class UsersController < ApplicationController
 	end
 
 	def require_same_user
-		# The user can only edit their own account
-		if current_user != @user
+		# The user can only edit their own account and when the current user is not the admin
+		if current_user != @user and !current_user.admin?
 			flash[:danger] = "You can only edit your own account"
+			redirect_to root_path
+		end
+	end
+
+	def require_admin
+		# if the user is logged in and the user is not admin
+		if logged_in? and !current_user.admin?
+			flash[:danger] = "Only admin users can perform tha action"
 			redirect_to root_path
 		end
 	end

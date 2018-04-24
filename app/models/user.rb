@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-	has_many :articles # the user can add many articles
+	has_many :articles, dependent: :destroy # the user can add many articles
+	# dependent: :destroy ensures that whatever article this user has it will destroy all those articles
 	before_save { self.email = email.downcase } # before the user gets saved it will take the email and turn it to lowercase and then save
 	# username validations
 	validates :username, presence: true, 
