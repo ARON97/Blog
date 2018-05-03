@@ -1,0 +1,31 @@
+<h1 align="center">Create new category</h1>
+
+<!-- render code from error partial - _errors.html.erb -->
+<%= render 'shared/errors', obj: @category  %> <!-- # specifying the obj -->
+<!-- Adding a form. A model back form -->
+		<!-- Adding a horizontal form in Ruby embedded code -->
+<%= form_for(@category, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+	<!-- Username label and text field -->
+	<div class="form-group">
+		<div class="control-label col-sm-2">
+			<%= f.label :name %>
+		</div>
+		<!-- text field -->
+		<div class="col-sm-8">
+			<%= f.text_field :name, class: "form-control", placeholder: "Category name", autofocus: true %> 
+		</div>
+	</div>
+
+	<!-- Submit button -->
+	<div class="form-group">
+		<div class=" col-sm-offset-2 col-sm-10">
+			<!-- @user.new_record? will change the new.html.erb button to Sign up and will change the edit.html.erb to Update account -->
+			<%= f.submit class: 'btn btn-primary btn-lg' %>
+		</div>
+	</div>
+<% end %>
+
+<div class="col-xs-4 col-xs-offset-4">
+	[ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+</div>
+	

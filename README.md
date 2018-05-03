@@ -193,3 +193,30 @@ Modify articles/_article.html.erb and the show.html.erb
 To allow the admin to delete a user and their articles add a destroy action in users.rb and dependent: :destroy in the user.rb model
 Modify the users_controller.rb to restrict the destroy only to admin and add the private method
 Provide the destroy in the view/users/index.html.erb
+
+AUTOMATED TESTING(Unit, function and integration)
+Unit Tests: Models, individual units of the application(like a validation) are working
+Function Tests: Controllers, a function is working, for example is before_action stopping a non-logged in user from performing an action. If an action is working or the user is being redirected properly
+Integration Tests: Full features, start to finish of a business process, example: a user signs up for the app
+
+CATEGORY MODEL AND UNIT TEST
+Tests are going to be stored in the test folder
+Create a new file in the model. category_test.rb
+To run the test type in "rails test" in the console
+To make the test pass create a app/models/category.rb
+After creating the model run "rails test" again - a category table was not found
+To create a table "rails generate migration create_categories"
+Migrate the table after adding attributes "rails db:migrate"
+Note: To check the tables go to db/schema.rb
+Run test again to check if the test passed. It will display "1 run, 1 assertions, 0 failures, 0 errors, 0 skips"
+
+CATEGORY CONTROLLER TEST(Testing routes/URL's)
+Create a file in "test/controller" name it categories_controller_test.rb
+Create a categories_controller.rb
+Add the categories routes
+Create the views
+
+INTEGRATION TEST
+Testing out an entire feature from start to finish
+Create an integration test in test/integration called create_categories_test.rb
+rails test test/integration/create_categories_test.rb, run a single test

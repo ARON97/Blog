@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   # handle logout
   delete 'logout', to: 'sessions#destroy'
+
+  # Categories routes for index, new and show. Except for destroy
+  resources :categories, except: [:destroy]
 end
