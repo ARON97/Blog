@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CreateCategoriesTest < ActionDispatch::IntegrationTest
+class ListCategoriesTest < ActionDispatch::IntegrationTest
 
 	def setup
 		@category = Category.create(name: "Books")
@@ -12,8 +12,8 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 		get categories_path
 		assert_template 'categories/index'
 		# test all categories are listed and link to the categories page
-		assert_select "a [href=?]", category_path(@category), text: @category.name
-		assert_select "a [href=?]", category_path(@category2), text: @category2.name
+		assert_select "a[href=?]", category_path(@category), text: @category.name
+		assert_select "a[href=?]", category_path(@category2), text: @category2.name
 	end
 
 end

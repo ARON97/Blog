@@ -27,7 +27,7 @@ class CategoryTest < ActiveSupport::TestCase
 		# first saving the category
 		@category.save
 		# initiate a new category
-		category2 = Category.new(name: "Technology")
+		category2 = Category.new(name: "programming")
 		# category2 should not be valid. We should not create another category sports
 		assert_not category2.valid?
 	end
