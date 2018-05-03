@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+ <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -38,6 +38,27 @@
               </ul>
             </li>
           <% end %>
+
+          <!-- Categories dropdown -->
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!-- <li><a href="#">Action</a></li> -->
+                <!-- convert the above code to embedded ruby -->
+                <li><%= link_to "All Categories", categories_path %></li>
+                <!-- display categories one by one -->
+                  <% Category.all.each do |category| %>
+                      <li><%= link_to "#{category.name}", category_path(category) %></li>
+                  <% end %>
+                <!-- add new categories only for admin logged in users -->
+                <% if logged_in? and current_user.admin? %>
+
+                  <li role="separator" class="divider"></li> <!-- seperator -->
+                  <li><%= link_to "Create New Category", new_category_path %></li>
+                  
+                <% end %>
+              </ul>
+            </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">

@@ -2,8 +2,15 @@ require 'test_helper'
 
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
+	def setup
+		# create an admin user
+		@user = User.create(username: "John", email: "john@example.com", password: "password", admin: true)
+	end
+
 	# Integration test and feature Create Category
 	test "get new categories form and create categories" do
+		# create a method that our test have access to and used that method with a user I provide
+		sign_in_as(@user, "password")
 		get new_category_path
 		# assert the test
 		assert_template 'categories/new'
@@ -20,6 +27,8 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
 	# Integration test for invalid category
 	test "invalid category submission results in failure" do
+		# create a method that our test have access to and used that method with a user I provide
+		sign_in_as(@user, "password")
 		get new_category_path
 		# assert the test
 		assert_template 'categories/new'
