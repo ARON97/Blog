@@ -220,3 +220,9 @@ INTEGRATION TEST
 Testing out an entire feature from start to finish
 Create an integration test in test/integration called create_categories_test.rb
 rails test test/integration/create_categories_test.rb, run a single test
+
+BUILD ARTICLE AND CATEGORY ASSOCIATION
+rails generate migration create_article_categories, Generate a migration file
+run rails db:migrate
+Create the model file to test connections, app/models/article_category.rb
+setup the many to many relationship in article.rb and category.rb
