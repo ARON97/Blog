@@ -23,7 +23,12 @@
 							</small>
 						</div>
 					</div>
+					<!-- display category associated with article -->
+					<% if article.categories.any? %>
+						<p>Categories: <%= render article.categories %></p>
+					<% end %>
 					<!-- if the user is logged in and the article is the current user's article show edit and delete. Or if the current user is the admin -->
+
 					<% if logged_in? && (current_user == article.user || current_user.admin?) %>
 						<div class="article-actions">
 							<%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary" %>

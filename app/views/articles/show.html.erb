@@ -27,6 +27,11 @@
 	<h4 class="center description"><strong>Description:</strong></h4>
 	<hr><!-- line -->
 	<%= simple_format(@article.description) %> <!-- simple-format() displays the formatting that you used to create the description of the article -->
+	<!-- show the category associated with the article -->
+	<% if @article.categories.any? %>
+		<!-- display the Categories 	rendering a partial -->
+		<p>Categories: 	<%= render @article.categories %></p>
+	<% end %>
 	<div class="article-actions">
 		<!-- if the user is logged in and the shown article is created by the user. Show the edit and delete buttons -->
 		<% if logged_in? && (current_user == @article.user || current_user.admin?) %>

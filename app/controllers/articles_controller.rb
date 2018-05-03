@@ -76,7 +76,8 @@ class ArticlesController < ApplicationController
 		end
 
 		def article_params
-			params.require(:article).permit(:title, :description)
+			params.require(:article).permit(:title, :description, category_ids: [])
+			# submission of the selected categories
 		end
 
 		def require_same_user

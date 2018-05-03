@@ -226,3 +226,14 @@ rails generate migration create_article_categories, Generate a migration file
 run rails db:migrate
 Create the model file to test connections, app/models/article_category.rb
 setup the many to many relationship in article.rb and category.rb
+
+To combine article with category in console
+Grab article and category, article = Article.last and category = Category.first
+then category.articles << article
+<< shuffle operator
+category.article, display an article associated with this category
+article.categories, display's the category of the article
+category.articles << Articles.find(22) To associate an article with another article
+
+To display the category associated with that article
+edit the views/article/show.html.erb and create a partial in views/categories/_category.html.erb

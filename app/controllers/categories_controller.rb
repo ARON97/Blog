@@ -23,7 +23,9 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-		
+		@category = Category.find(params[:id])
+		# to list the articles associated with that category instance and paginate
+		@category_articles = @category.articles.paginate(page: params[:page], per_page: 5)
 	end
 
 	# Always put this method at the end

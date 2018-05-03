@@ -1,0 +1,12 @@
+<!-- List the articles associated with the selected category -->
+<h1 align="center"><%= @category.name %></h1>
+<!-- display the pagination -->
+<div align="center">
+	<%= will_paginate @category_articles %>
+</div>
+<!-- Listing the articles -->
+<%= render 'articles/article', obj: @category_articles %>
+<!-- display the pagination at the bottom -->
+<div align="center">
+	<%= will_paginate @category_articles %>
+</div>
